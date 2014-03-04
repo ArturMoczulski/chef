@@ -19,7 +19,7 @@ Then(/^I see the homepage/) do
 end
 
 Then /^I see the "(.*)" notice$/ do |msg|
-  page.should have_selector('div.notice', text: msg)
+  page.should have_selector('div.flash div.notice', text: msg)
 end
 
 Then(/^I see the (.*) page/) do |c|

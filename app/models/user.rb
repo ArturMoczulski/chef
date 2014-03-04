@@ -13,4 +13,13 @@ class User < ActiveRecord::Base
       self.encrypted_password = BCrypt::Engine.hash_secret(password, salt)
     end
   end
+
+  def self.authenticate(email, password)
+    user = find_by_email(email)
+    if user && user.encrypted_password == BCrypt::Engine.hash_secret(password, user.salt)
+      user
+    else
+      nil
+    end
+  end
 end

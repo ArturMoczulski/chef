@@ -1,5 +1,6 @@
 Chef::Application.routes.draw do
-  get "signup", to: "users#signup"
+  get "signup", to: "users#signup", :as => "signup"
+  get "login" => "user_sessions#new", :as => "login"
 
   get "user_sessions/login"
   get "pages/index"
