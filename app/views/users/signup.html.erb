@@ -1,0 +1,15 @@
+<div class="signup-page">
+  <h1>Sign up</h1>
+  <%= form_for :user, html: {class: "signup"} do |f| %>
+    <%= f.label "Email" %>
+    <%= f.email_field "email" %>
+
+    <%= f.label "Password" %>
+    <%= f.password_field "password" %>
+
+    <%= f.label "Confirm password" %>
+    <%= f.password_field "confirm_password" %>
+
+    <%= f.submit %>
+  <% end %>
+</div>
