@@ -1,4 +1,9 @@
 <h1>Chef</h1>
+<% if notice %>
+  <div class="notice">
+    <%= notice %>
+  </div>
+<% end %>
 <%= link_to "Sign up", '/signup', {class: "signup"} %>
 <%= form_for :user_session, html: {class: "login"} do |f| %>
   <%= f.label :email %>

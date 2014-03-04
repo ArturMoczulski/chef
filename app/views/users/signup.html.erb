@@ -1,15 +1,26 @@
 <div class="signup-page">
   <h1>Sign up</h1>
-  <%= form_for :user, html: {class: "signup"} do |f| %>
-    <%= f.label "Email" %>
-    <%= f.email_field "email" %>
+  <%= form_for @user, html: {class: "signup"} do |f| %>
+    <% if @user.errors.any? %>
+      <div class="errors">
+        <ul>
+          <% for message in @user.errors.full_messages %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+      
 
-    <%= f.label "Password" %>
-    <%= f.password_field "password" %>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
 
-    <%= f.label "Confirm password" %>
-    <%= f.password_field "confirm_password" %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
 
-    <%= f.submit %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+
+    <%= f.submit "Sign up" %>
   <% end %>
 </div>
