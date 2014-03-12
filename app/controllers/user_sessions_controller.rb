@@ -1,22 +1,15 @@
 class UserSessionsController < ApplicationController
-  def new
-  end
-
   def create
-    email = params.require(:email).permit!
-    password = params.require(:password).permit!
+    email = params.require(:email)
+    password = params.require(:password)
 
     user = User.authenticate(email, password)
 
     if user
       session[:user_id] = user.id
-      redirect_to root_path, :notice => "Logged in!"
+      redirect_to root_path, :notice => 'Welcome in Chef! Thank you for signing in!'
     else
-      flash.now.alert = "Incorrect email or password. Please try again."
-      render "new"
+      redirect_to root_path, :alert => "Incorrect email or password. Please try again."
     end
-  end
-
-  def login
   end
 end
