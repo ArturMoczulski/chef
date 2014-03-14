@@ -1,3 +1,11 @@
+Given(/^I sign in$/) do
+  steps %Q{
+    Given a "tester@example.com" user exists with password "123"
+    When I am on the homepage
+    And I fill in the login form with email "tester@example.com" and password "123"
+  }
+end
+
 Given(/^a "(.*)" user exists with password "(.*)"$/) do |email, password|
   user = create(:user, email: email, password: password)
 end
@@ -33,4 +41,8 @@ end
 
 Then(/^I see the (.*) page/) do |c|
   page.should have_selector('div.'+c+'-page')
+end
+
+Then(/^I see the "(.*)" message$/) do |m|
+  page.should have_content(m)
 end
