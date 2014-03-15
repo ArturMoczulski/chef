@@ -18,7 +18,7 @@ When(/^I am on the (.*) page/) do |url|
   visit url
 end
 
-When(/^I follow the "(.*)" link$/) do |text|
+When(/^I (?:follow|click) the "(.*)" link$/) do |text|
   click_link text
 end
 
