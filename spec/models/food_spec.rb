@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe "food/index.html.erb" do
+describe Food do
   pending "add some examples to (or delete) #{__FILE__}"
 end

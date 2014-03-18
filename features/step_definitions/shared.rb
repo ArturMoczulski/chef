@@ -22,6 +22,10 @@ When(/^I (?:follow|click) the "(.*)" link$/) do |text|
   click_link text
 end
 
+When(/^I fill in the "(.*)" field with "(.*)"$/) do |f,t|
+  fill_in f, :with => t
+end
+
 Then(/^I( do not)? see the (.*) form$/) do |negate, c|
   selector = 'form.'+c
   negate ? page.should_not(have_selector(selector)) : page.should(have_selector(selector))
@@ -37,6 +41,10 @@ end
 
 Then(/^I see the "(.*)" notice$/) do |msg|
   page.should have_selector('div.flash div.notice', text: msg)
+end
+
+Then(/^I see the "(.*)" validation error/) do |msg|
+  page.should have_selector('div.errors', text: msg)
 end
 
 Then(/^I see the (.*) page/) do |c|

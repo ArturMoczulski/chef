@@ -1,7 +1,10 @@
 Chef::Application.routes.draw do
-  get "food", to: "food#index", :as => "food"
+
+  resources :foods
+
   get "signup", to: "users#signup", :as => "signup"
   get "signin" => "user_sessions#new", :as => "signin"
+  get "signout" => "user_sessions#signout", :as => "signout"
 
   get "pages/index"
 

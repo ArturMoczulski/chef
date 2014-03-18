@@ -1,18 +1,16 @@
 class UsersController < ApplicationController
+  skip_before_action :access_control, only: [:create, :signup]
+
   def create
     @user = User.new(params.require(:user).permit!)
     if @user.save
       redirect_to root_url, :notice => "Signed up!"
     else
-      render "new"
+      render "signup"
     end
   end
 
-  def new
-    @user = User.new
-  end
-
   def signup
-    new
+    @user = User.new
   end
 end

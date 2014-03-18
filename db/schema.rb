@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227192833) do
+ActiveRecord::Schema.define(version: 20140318171523) do
+
+  create_table "foods", force: true do |t|
+    t.string   "name"
+    t.integer  "producer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "foods", ["producer_id"], name: "index_foods_on_producer_id"
+
+  create_table "organizations", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "user_sessions", force: true do |t|
     t.datetime "created_at"
