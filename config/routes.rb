@@ -1,5 +1,7 @@
 Chef::Application.routes.draw do
 
+  resources :food_stocks
+
   resources :foods
 
   get "signup", to: "users#signup", :as => "signup"

@@ -10,7 +10,12 @@ class ApplicationController < ActionController::Base
   end
 
   def restore_session
-    @current_user = User.find(session[:user_id]) unless !session[:user_id]
+    begin
+      @current_user = User.find(session[:user_id]) unless !session[:user_id]
+    rescue ActiveRecord::RecordNotFound
+      reset_session
+      redirect_to root_path, :alert => "User not found."
+    end
   end
 
   helper_method :signed_in?

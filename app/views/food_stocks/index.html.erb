@@ -1,0 +1,31 @@
+<h1>Listing food_stocks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>User</th>
+      <th>Quantity</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @food_stocks.each do |food_stock| %>
+      <tr>
+        <td><%= food_stock.food %></td>
+        <td><%= food_stock.user %></td>
+        <td><%= food_stock.quantity %></td>
+        <td><%= link_to 'Show', food_stock %></td>
+        <td><%= link_to 'Edit', edit_food_stock_path(food_stock) %></td>
+        <td><%= link_to 'Destroy', food_stock, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add food', new_food_stock_path %>

@@ -1,3 +1,3 @@
 class Food < ActiveRecord::Base
-  belongs_to :producer
+  belongs_to :producer, class_name: "Organization"
 end
