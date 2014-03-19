@@ -26,6 +26,10 @@ When(/^I fill in the "(.*)" field with "(.*)"$/) do |f,t|
   fill_in f, :with => t
 end
 
+When(/^I select "(.*)" as the (.*)$/) do |value,select|
+  select value, :from => select
+end
+
 Then(/^I( do not)? see the (.*) form$/) do |negate, c|
   selector = 'form.'+c
   negate ? page.should_not(have_selector(selector)) : page.should(have_selector(selector))

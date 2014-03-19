@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :food do
-    name "MyString"
-    producer nil
+    sequence(:name) { |n| "Food product #{n}" }
+    association :producer, factory: :organization
   end
 end
