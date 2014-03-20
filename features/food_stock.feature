@@ -19,8 +19,9 @@ Feature: Stock
     And I click the "Add food" link
     And I select "<producer> - <name>" as the food_food_id
     And I fill in the "Quantity" field with "<quantity>"
-    Then I am on the food_stock page
-    And I see the <producer> - <name> x <quantity> in my food stock list
+    Then I am on the food_stocks page
+    And I see the "Food stock was successfully created." notice
+    And I see "<producer>" - "<name>" x <quantity> in my food stock list
 
     Examples:
       | producer       | name                   | quantity |

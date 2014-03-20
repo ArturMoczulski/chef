@@ -15,7 +15,7 @@ When(/^I click the "(.*)" button$/) do |button|
 end
 
 When(/^I am on the (.*) page/) do |url|
-  visit url
+  visit "/#{url}"
 end
 
 When(/^I (?:follow|click) the "(.*)" link$/) do |text|
